@@ -9,7 +9,8 @@ class UserController {
     try {
       const user = await User.create({ email, password, username });
 
-      res.status(201).json({ message: 'Success Create a User', user });
+      res.status(201).json(user);
+      // res.status(201).json({ message: 'Success Create a User', user });
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
@@ -36,11 +37,11 @@ class UserController {
 
           res.status(200).json({ message: 'Login Success', token });
         } else {
-          res.status(400).json({ message: 'Wrong Password' });
+          res.status(401).json({ message: 'Wrong Password' });
         }
       } else {
         res
-          .status(400)
+          .status(401)
           .json({ message: `User with email ${email}  does not match` });
       }
     } catch (error) {
