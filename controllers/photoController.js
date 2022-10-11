@@ -33,7 +33,7 @@ class PhotoController {
         UserId: userId,
       });
 
-      return res.status(200).json(photosData);
+      return res.status(201).json(photosData);
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }
@@ -51,7 +51,7 @@ class PhotoController {
         returning: true,
       });
 
-      return res.status(200).json(photosData);
+      return res.status(201).json(photosData);
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }
